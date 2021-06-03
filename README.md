@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Založení projektu
 
 ```bash
-npm create-next-app my-next-web --use-npm
+npx create-next-app my-next-web --use-npm
 ```
 
 Vytvoří se adresář `my-next-web`, ten si otevřete ve Visual Studio Code. Lokální vývojový server spustíte příkazem
