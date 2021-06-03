@@ -43,6 +43,8 @@ const nactiData = async () => {
 
 ## Funkce exportované z Next.js page
 
+### [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+
 ```javascript
 export const getStaticProps = (context) => {
   return {
@@ -53,6 +55,8 @@ export const getStaticProps = (context) => {
   };
 };
 ```
+
+### [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)
 
 ```javascript
 export const getStaticPaths = () => {
