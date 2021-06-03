@@ -1,34 +1,75 @@
+# Next.js
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Založení projektu
 
-First, run the development server:
+```bash
+npm create-next-app my-next-web --use-npm
+```
+
+Vytvoří se adresář `my-next-web`, ten si otevřete ve Visual Studio Code. Lokální vývojový server spustíte příkazem
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Živý web pro vývoj běží v prohlížeči na adrese [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## `async/await` – jiný zápis `then`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```javascript
+const nactiData = () => {
+  fetch("https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400")
+    .then((resp) => resp.json())
+    .then((json) => console.log(json));
+};
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Předchozí kód se dá zapsat také takto:
 
-## Learn More
+```javascript
+const nactiData = async () => {
+  const resp = await fetch("https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400");
+  const json = await resp.json();
+  console.log(json);
+};
+```
+
+## Funkce exportované z Next.js page
+
+```javascript
+export const getStaticProps = (context) => {
+  return {
+    props: {},
+    revalidate: false,
+    notFound: false,
+    redirect: null,
+  };
+};
+```
+
+```javascript
+export const getStaticPaths = () => {
+  return {
+    paths: [
+        { params: { … } },
+        { params: { … } } //…
+      ],
+    fallback: false
+  };
+};
+```
+
+## Doinstalování podpory pro Markdown
+
+```bash
+npm install remark remark-html gray-matter
+```
+
+## Odkazy na dokumentaci
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

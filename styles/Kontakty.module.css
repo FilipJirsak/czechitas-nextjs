@@ -1,0 +1,22 @@
+.kontakty {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.kontakt {
+  display: flex;
+  width: 49%;
+  border: 1px solid silver;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.udaje {
+  padding: 10px;
+}
+
+.photo {
+  float: right;
+  margin: 30px;
+}
