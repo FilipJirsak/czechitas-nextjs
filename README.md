@@ -16,6 +16,11 @@ npm run dev
 
 Živý web pro vývoj běží v prohlížeči na adrese [http://localhost:3000](http://localhost:3000).
 
+## Adresáře
+
+- `pages` – stránky webu, co soubor `.js` to jedna stránka.
+- `public` – statické soubory, které se zkopírují do kořenového adresáře výsledného webu
+
 ## `async/await` – jiný zápis `then`
 
 ```javascript
@@ -67,9 +72,24 @@ export const getStaticPaths = () => {
 npm install remark remark-html gray-matter
 ```
 
+## Publikování na Netlify
+
+V souboru `package.json` upravit `scripts.build`. Původní hodnota:
+
+```javascript
+"build": "next build"
+```
+
+Po úpravě:
+
+```javascript
+"build": "next build && next export"
+```
+
 ## Odkazy na dokumentaci
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) - A quick reference to the Markdown syntax.
