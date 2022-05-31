@@ -21,6 +21,18 @@ npm run dev
 - `pages` – stránky webu, co soubor `.js` to jedna stránka.
 - `public` – statické soubory, které se zkopírují do kořenového adresáře výsledného webu
 
+Místo přípony `.jsx` se v Nextu používá jen `.js`. Soubory s proměnnou v hranatých závorkách (např. `/produkt/[id].js`) jsou šablony – podle tohoto souboru se může vygenerovat více stránek na základě pole – za `[id]` se postupně dosazují položky pole.
+
+Příklad adresářové struktury a výsledných adres:
+
+```
+/index.js         → /
+/kontakty.js      → /kontakty
+/clanky/index.js  → /clanky
+/clanky/o-nas.js  → /clanky/o-nas
+/produkt/[id].js  → /produkt/jablko, /produkt/hruska, /produkt/vino…
+```
+
 ## `async/await` – jiný zápis `then`
 
 ```javascript
